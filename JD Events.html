@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JD Events</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            text-align: center;
+            background: #fff8f0;
+        }
+
+        h1 {
+            color: #b8860b;
+            font-size: 60px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .page {
+            display: none;
+            padding: 30px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .home-image {
+            width: 80%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .event {
+            background: white;
+            margin: 25px auto;
+            padding: 20px;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px #ccc;
+        }
+
+        .event img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        button {
+            margin: 15px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            background: #b8860b;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #8b6508;
+        }
+
+        .details img {
+            width: 250px;
+            height: 180px;
+            object-fit: cover;
+            margin: 8px;
+            border-radius: 10px;
+        }
+
+        input, textarea {
+            width: 80%;
+            padding: 12px;
+            margin: 8px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="home" class="page active">
+
+    <h1>JD Events</h1>
+
+    <h2>"Making Every Moment Beautiful With Us"</h2>
+
+    
+    <img src="event.jpg" class="home-image">
+
+    <br>
+
+    <button onclick="showPage('events')">
+        Explore Events
+    </button>
+
+</div>
+
+
+<div id="events" class="page">
+
+    <h1>Explore Events</h1>
+
+    
+    <div class="event">
+        <img src="birthday.jpg">
+        <h2>Birthday</h2>
+
+        <button onclick="showPage('birthday')">
+            Details
+        </button>
+    </div>
+
+
+    
+    <div class="event">
+        <img src="wedding.jpg">
+        <h2>Wedding</h2>
+
+        <button onclick="showPage('wedding')">
+            Details
+        </button>
+    </div>
+
+
+    
+    <div class="event">
+        <img src="culturals.jpg">
+        <h2>Culturals</h2>
+
+        <button onclick="showPage('culturals')">
+            Details
+        </button>
+    </div>
+
+</div>
+
+
+<div id="birthday" class="page details">
+
+    <h1>Birthday Events</h1>
+
+    <img src="birthday1.jpg">
+    <img src="birthday2.jpg">
+    <img src="birthday3.jpg">
+
+    <h2>Birthday Decoration</h2>
+
+    <p>
+        Beautiful birthday decorations with balloons,
+        flowers and customized themes.
+    </p>
+
+    <h2>Packages</h2>
+
+    <p>Basic Package - ₹15,000</p>
+    <p>Premium Package - ₹30,000</p>
+    <p>For More,Contact Us - 8610896357</p>
+
+    <button onclick="showPage('booking')">
+        Book Now
+    </button>
+
+    <br>
+
+    <button onclick="showPage('events')">
+        Back
+    </button>
+
+</div>
+
+
+<div id="wedding" class="page details">
+
+    <h1>Wedding Events</h1>
+
+    <img src="wedding1.jpg">
+    <img src="wedding2.jpg">
+    <img src="wedding3.jpg">
+
+    <h2>Wedding Decoration</h2>
+
+    <p>
+        Elegant wedding decorations designed
+        for your special day.
+    </p>
+
+    <h2>Packages</h2>
+
+    <p>Basic Package - ₹75,000</p>
+    <p>Premium Package - ₹1,50,000</p>
+    <p>For More,Contact Us - 8610896357</p>
+
+
+    <button onclick="showPage('booking')">
+        Book Now
+    </button>
+
+    <br>
+
+    <button onclick="showPage('events')">
+        Back
+    </button>
+
+</div>
+
+
+
+<div id="culturals" class="page details">
+
+    <h1>Cultural Events</h1>
+
+    <img src="cultural1.jpg">
+    <img src="cultural2.jpg">
+    <img src="cultural3.jpg">
+
+    <h2>Cultural Decoration</h2>
+
+    <p>
+        Stylish and beautiful decorations
+        for your Cultural event.Include DJ music.
+    </p>
+
+    <h2>Packages</h2>
+
+    <p>Basic Package - ₹35,000</p>
+    <p>Premium Package - ₹50,000</p>
+    <p>For More,Contact Us - 8610896357</p>
+
+
+    <button onclick="showPage('booking')">
+        Book Now
+    </button>
+
+    <br>
+
+    <button onclick="showPage('events')">
+        Back
+    </button>
+
+</div>
+
+
+<div id="booking" class="page">
+
+    <h1>Book Your Event</h1>
+
+    <input type="text" placeholder="Your Name">
+
+    <input type="text" placeholder="Phone Number">
+
+    <input type="text" placeholder="Event Name">
+
+    <input type="date">
+
+    <textarea placeholder="Additional Details"></textarea>
+
+    <br>
+
+    <button onclick="bookEvent()">
+        Submit Booking
+    </button>
+
+    <br>
+
+    <button onclick="showPage('events')">
+        Back
+    </button>
+
+</div>
+
+
+<script>
+
+function showPage(pageName) {
+
+    var pages = document.getElementsByClassName("page");
+
+    for (var i = 0; i < pages.length; i++) {
+        pages[i].classList.remove("active");
+    }
+
+    document.getElementById(pageName).classList.add("active");
+
+    window.scrollTo(0, 0);
+}
+
+
+function bookEvent() {
+
+    alert("Thank you! Your booking request has been submitted.");
+
+}
+
+</script>
+
+</body>
+</html>
